@@ -1,0 +1,17 @@
+{% extends 'mytodo/base.html' %}
+
+{% block title %}
+	- Detail
+{% endblock %}
+
+
+{% block content %}
+
+<p>{{ todo.title }}</p>
+<p>{{ todo.description }}</p>
+<p>{{ todo.completed }}</p>
+
+<a href="{% url 'mytodo:todo_update' todo.pk %}">EDIT</a>
+<a href="{% url 'mytodo:todo_list' %}">TODO LIST</a>
+
+{% endblock %}

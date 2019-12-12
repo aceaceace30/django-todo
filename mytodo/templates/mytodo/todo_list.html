@@ -1,0 +1,33 @@
+{% extends 'mytodo/base.html' %}
+
+{% block title %}
+	- List
+{% endblock %}
+
+
+{% block content %}
+
+<a href="{% url 'mytodo:todo_create' %}">New</a>
+
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Completed</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for todo in todos %}
+		<tr>
+			<td><a href="{% url 'mytodo:todo_detail' todo.pk %}">{{ todo.title }}</a></td>
+			<td>{{ todo.description }}</td>
+			<td>{{ todo.completed }}</td>
+			<td><a href="{% url 'mytodo:todo_delete' todo.pk %}">DELETE</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}
